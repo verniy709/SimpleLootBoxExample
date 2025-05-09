@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ThingDef Name="SimpleLootBoxBase" ParentName="ResourceBase" Abstract="True">
+		<thingClass>ThingWithComps</thingClass>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass><!-- Using Graphic_StackCount, the item's texture will reflect its stack count -->
+		</graphicData>
+		<stackLimit>10</stackLimit><!-- Stack count of the item -->
+		<techLevel>Medieval</techLevel><!-- The item's tech level; it does not affect any functionality and is purely a special tag -->
+		<thingCategories><!-- Item category -->
+			<li>Artifacts</li>
+		</thingCategories>
+		<tradeTags><!-- Item trade tags -->
+			<li>Artifacts</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef ParentName="SimpleLootBoxBase">
+		<defName>SimpleLootBoxExampleA</defName><!-- Definition name of the loot box -->
+		<label>simple loot box example A</label><!-- The name of the loot box, which can be localized for translation -->
+		<description>Example A.</description><!-- The description of the loot box, which can be localized for translation -->
+		<graphicData>
+			<texPath>SimpleLootBox/ExampleA</texPath><!-- The texture path of the loot box -->
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>1.0</Mass><!-- The mass of the loot box -->
+			<MarketValue>100</MarketValue><!-- The market value of the loot box itself -->
+		</statBases>
+		<tradeability>Buyable</tradeability><!-- Whether the loot box can be traded. Some literal values are available for this setting： None Sellable Buyable All -->
+		<comps>
+			<li Class="CompProperties_Usable">
+				<useJob>UseArtifact</useJob>
+				<useLabel>Activate {0_label}</useLabel>
+				<showUseGizmo>true</showUseGizmo>
+				<useDuration>150</useDuration>
+			</li>
+			<li Class="SimpleLootBox.CompProperties_SpawnLootBox">
+				<lootBoxList>
+					<li>
+						<thingDef>SimpleLootBoxExampleA</thingDef><!-- The loot box's defName, added to the global drop list for killing creatures; if you have a custom key item, consider adding it here as well -->
+						<chance>0.5</chance><!-- The drop chance of this loot box; defaults to 0.05 (5%) if not specified -->
+						<daysBetweenLootBoxSpawns>0.2</daysBetweenLootBoxSpawns><!-- The frequency of spawning the loot box. daysBetweenLootBoxSpawns = 7, meaning spawn of a such a lootbox every 7 days in the game. No default loot box spawn -->
+					</li>
+				</lootBoxList>
+			</li>
+			<li Class="SimpleLootBox.CompProperties_LootBox">
+				<lootBoxOpenSound>lootBoxOpenSound</lootBoxOpenSound><!-- The sound effect played when entering the loot box opening screen; if not set, no sound will be played -->
+				<lootBoxSpinningSound>lootBoxSpinningSound</lootBoxSpinningSound><!-- The sound effect played during the spinning; it's a looping Sustainer that plays a single audio clip -->
+				<lootBoxBackgroundMusicSound>lootBoxBackgroundMusicSoundA</lootBoxBackgroundMusicSound><!-- Background music for the loot box opening window; it's a single-loop Sustainer -->
+				<lootBoxBackgroundTexturePath>SimpleLootBox/LootBoxBackgroundA</lootBoxBackgroundTexturePath><!-- Background image for the loot box window; the UI resolution is:700*800 -->
+				<lootBoxOpenCost>Silver</lootBoxOpenCost><!-- The item required to open the loot box. It can be silver, a custom key, or any other item. If not specified, no item is required by default -->
+				<lootBoxOpenCostCount>100</lootBoxOpenCostCount><!-- The number of items required to open the loot box. Defaults to 0 if not specified -->
+				<lootBoxThingDef>
+					<li>
+						<thingDef>Silver</thingDef><!-- The defName of items that can be obtained from the loot box; this field is required -->
+						<count>1000</count><!-- The quantity of the item to be generated; this field is required -->
+						<weight>5</weight><!-- The generation weight of this reward; this field is required -->
+						<rarity>2</rarity><!-- The rarity of this reward (used for color and text display). Available values: 0 1 2 3 4 5, where higher numbers indicate greater rarity. Defaults to 0 if not specified.-->
+						<effecterDef>Skip_ExitNoDelay</effecterDef><!-- An optional effect to play when this reward is generated. If not set, no effect will be shown -->
+						<lootBoxFinalizingRewardSound>lootBoxFinalizingRewardSound</lootBoxFinalizingRewardSound><!-- The sound effect played when this reward is selected. If not set, no sound will be played. -->
+						<isHidden>false</isHidden><!-- Whether this item should be hidden from the visible reward list. If you want to surprise the player, set this to true. Defaults to false -->
+					</li>
+					<li>
+						<thingDef>Gold</thingDef>
+						<count>500</count>
+						<weight>1</weight>
+						<rarity>4</rarity>
+						<lootBoxFinalizingRewardSound>lootBoxFinalizingRewardSound</lootBoxFinalizingRewardSound>
+					</li>
+					<li>
+						<thingDef>Bed</thingDef>
+						<stuff>WoodLog</stuff><!-- If this item is stuffable, it will use the stuff specified here. If not specified, the default stuff will be used automatically. -->
+						<quality>Masterwork</quality><!-- If the item supports quality, it will use the specified quality here. If not set, the default is Normal. Available quality: Awful Poor Normal Good Excellent Masterwork Legendary-->
+						<count>1</count>
+						<weight>2</weight>
+						<rarity>2</rarity>
+						<isHidden>true</isHidden><!-- This reward is hidden from the visible list -->
+					</li>
+					<li>
+						<thingDef>MeleeWeapon_MonoSword</thingDef>
+						<quality>Legendary</quality>
+						<count>1</count>
+						<weight>1</weight>
+						<rarity>5</rarity>
+						<effecterDef>GiantExplosion</effecterDef>
+					</li>
+				</lootBoxThingDef>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="SimpleLootBoxBase">
+		<defName>SimpleLootBoxExampleB</defName>
+		<label>simple loot box example B</label>
+		<thingClass>ThingWithComps</thingClass>
+		<description>Example B.</description>
+		<graphicData>
+			<texPath>SimpleLootBox/ExampleB</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>1.0</Mass>
+			<MarketValue>100</MarketValue>
+		</statBases>
+		<tradeability>Buyable</tradeability>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<useJob>UseArtifact</useJob>
+				<useLabel>Activate {0_label}</useLabel>
+				<showUseGizmo>true</showUseGizmo>
+				<useDuration>100</useDuration>
+			</li>
+			<li Class="SimpleLootBox.CompProperties_SpawnLootBox">
+				<lootBoxList>
+					<li>
+						<thingDef>SimpleLootBoxExampleB</thingDef>
+						<chance>0.5</chance>
+					</li>
+				</lootBoxList>
+			</li>
+			<li Class="SimpleLootBox.CompProperties_LootBox">
+				<lootBoxOpenSound>lootBoxOpenSound</lootBoxOpenSound>
+				<lootBoxSpinningSound>lootBoxSpinningSound</lootBoxSpinningSound>
+				<lootBoxBackgroundMusicSound>lootBoxBackgroundMusicSoundB</lootBoxBackgroundMusicSound>
+				<lootBoxBackgroundTexturePath>SimpleLootBox/LootBoxBackgroundB</lootBoxBackgroundTexturePath>
+				<lootBoxPawnKindDef>
+					<li>
+						<pawnKindDef>Mercenary_Gunner</pawnKindDef><!-- The defName of a pawn (character) that can be obtained from the loot box -->
+						<count>2</count><!-- The number of pawns to be generated -->
+						<weight>5</weight><!-- The generation weight of this reward -->
+						<isHostile>false</isHostile><!-- Whether the generated pawn is hostile to the player. Defaults to false -->
+						<lootBoxFinalizingRewardSound>lootBoxFinalizingRewardSound</lootBoxFinalizingRewardSound>
+					</li>
+					<li>
+						<pawnKindDef>Baby_Example</pawnKindDef>
+						<count>1</count>
+						<weight>5</weight>
+						<rarity>3</rarity>
+					</li>
+					<li>
+						<pawnKindDef>Mech_Centurion</pawnKindDef>
+						<count>1</count>
+						<weight>5</weight>
+						<rarity>4</rarity>
+						<effecterDef>ExtinguisherExplosion</effecterDef>
+					</li>
+					<li>
+						<pawnKindDef>Cat</pawnKindDef>
+						<count>5</count>
+						<weight>5</weight>
+						<rarity>5</rarity>
+						<isHostile>true</isHostile><!-- The generated pawn is hostile to the player -->
+					</li>
+				</lootBoxPawnKindDef>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="SimpleLootBoxBase">
+		<defName>SimpleLootBoxExampleC</defName>
+		<label>simple loot box example C</label>
+		<thingClass>ThingWithComps</thingClass>
+		<description>Example C.</description>
+		<graphicData>
+			<texPath>SimpleLootBox/ExampleC</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>1.0</Mass>
+			<MarketValue>100</MarketValue>
+		</statBases>
+		<tradeability>Buyable</tradeability>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<useJob>UseArtifact</useJob>
+				<useLabel>Activate {0_label}</useLabel>
+				<showUseGizmo>true</showUseGizmo>
+				<useDuration>100</useDuration>
+			</li>
+			<li Class="SimpleLootBox.CompProperties_SpawnLootBox">
+				<lootBoxList>
+					<li>
+						<thingDef>SimpleLootBoxExampleC</thingDef>
+						<chance>0.5</chance>
+					</li>
+				</lootBoxList>
+			</li>
+			<li Class="SimpleLootBox.CompProperties_LootBox">
+				<lootBoxOpenSound>lootBoxOpenSound</lootBoxOpenSound>
+				<lootBoxSpinningSound>lootBoxSpinningSound</lootBoxSpinningSound>
+				<lootBoxPawnKindDef><!-- The loot box can have a mix of pawns and things as rewards -->
+					<li>
+						<pawnKindDef>Mercenary_Gunner</pawnKindDef>
+						<count>2</count>
+						<weight>5</weight>
+					</li>
+				</lootBoxPawnKindDef>
+				<lootBoxThingDef><!-- The loot box can have a mix of pawns and things as rewards -->
+					<li>
+						<thingDef>Silver</thingDef>
+						<count>1000</count>
+						<weight>5</weight>
+						<rarity>2</rarity>
+						<effecterDef>Skip_ExitNoDelay</effecterDef>
+						<lootBoxFinalizingRewardSound>lootBoxFinalizingRewardSound</lootBoxFinalizingRewardSound>
+					</li>
+				</lootBoxThingDef>
+			</li>
+		</comps>
+	</ThingDef>
+	
+</Defs>

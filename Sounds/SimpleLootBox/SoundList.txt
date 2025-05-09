@@ -1,0 +1,13 @@
+lootBoxBackgroundMusicSoundA
+
+【哈基米FM之胜利之舞：终究是我们赢下了所有】 https://www.bilibili.com/video/BV1oQQmYPEyq/?share_source=copy_web&vd_source=d828b477675cefa74034b8af311ab09a
+
+lootBoxBackgroundMusicSoundB
+
+【《大东北我的家乡》最带派的一集】 https://www.bilibili.com/video/BV1dL9zYCEJF/?share_source=copy_web&vd_source=d828b477675cefa74034b8af311ab09a
+
+lootBoxFinalizingRewardSound
+lootBoxOpenSound
+lootBoxSpinningSound
+
+Counter-Strike: Global Offensive

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<PawnKindDef ParentName="GrenadierBase"><!-- Character inherits from the 'parent' GrenadierBase. If any entries below share the same fields as the parent, they will override the parent's values. -->
+		<defName>Baby_Example</defName><!-- Character definition name -->
+		<label>baby example</label><!-- Character's name can be localized for translation. -->
+		<race>Human</race><!-- Definition name of the character's race -->
+		<defaultFactionType>OutlanderCivil</defaultFactionType><!-- Default faction. -->
+		<combatPower>10</combatPower><!-- Raid point cost -->
+		<initialWillRange>1~10</initialWillRange><!-- Slavery difficulty -->
+		<initialResistanceRange>10~20</initialResistanceRange><!-- Recruitment difficulty -->
+		<minGenerationAge>0.01</minGenerationAge><!-- Minimum biological age for pawn generation -->
+		<maxGenerationAge>30</maxGenerationAge><!-- Maximum biological age for pawn generation -->
+		<techHediffsMoney>0</techHediffsMoney><!-- Bionic value -->
+		<apparelMoney>0</apparelMoney><!-- Apparel value -->
+		<weaponMoney>0</weaponMoney><!-- Weapon value -->
+		<techHediffsTags Inherit="False"><!-- Inherit="False" is used to remove such tags that might be inherited from the parentName, and defines which bionic tags will be used instead. -->
+		</techHediffsTags>
+		<weaponTags Inherit="False"><!-- Defines the tags used to determine which weapons this pawn can equip. -->
+		</weaponTags>
+		<apparelTags Inherit="False"><!-- Defines the tags used to determine which apparel this pawn can wear. -->
+		</apparelTags>
+		<inventoryOptions Inherit="False"><!-- Determines which items this pawn carries in their inventory. -->
+		</inventoryOptions>
+		<skills><!-- Defines the range of a skill for the generated pawn, such as Shooting Melee Construction Mining Cooking Plants Animals Crafting Artistic Medicine Social Intellectual -->
+			<li>
+				<skill>Shooting</skill>
+				<range>15~20</range>
+			</li>
+		</skills>
+		<disallowedTraits><!-- Traits that are not allowed for this pawn -->
+			<li>Brawler</li>
+		</disallowedTraits>
+		<disallowedTraitsWithDegree><!-- Traits that are forbidden for this pawn kind, including specific degrees -->
+			<PsychicSensitivity>-2</PsychicSensitivity>
+		</disallowedTraitsWithDegree>
+		<forcedTraits><!-- Traits that are forcibly assigned to the pawn upon generation, along with their degrees. Most modded traits typically do not define degrees. -->
+			<Recluse>0</Recluse>
+		</forcedTraits>		
+		<useFactionXenotypes>false</useFactionXenotypes><!-- Removes xenotype generation chances defined by the faction -->
+		<xenotypeSet>
+			<xenotypeChances>
+				<Neanderthal MayRequire="Ludeon.RimWorld.Biotech">1</Neanderthal><!-- Generation chance for a specific xenotype -->
+			</xenotypeChances>
+		</xenotypeSet>
+		<pawnGroupDevelopmentStage>Baby</pawnGroupDevelopmentStage><!-- Specifies the developmental stage of the generated pawn. Valid options are Newborn Baby Child Adult-->
+	</PawnKindDef>
+
+</Defs>

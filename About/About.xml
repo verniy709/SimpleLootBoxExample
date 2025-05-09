@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Simple Loot Box Example</name>
+  <author>Verniy709</author>
+  <supportedVersions>
+    <li>1.5</li>
+  </supportedVersions>
+  <packageId>Verniy709.SimpleLootBoxExample</packageId>
+  <description>
+  </description>
+  <modDependencies>
+    <li>
+      <packageId>Verniy709.SimpleLootBox</packageId>
+      <displayName>Simple Loot Box</displayName>
+    </li>
+  </modDependencies>
+</ModMetaData>
