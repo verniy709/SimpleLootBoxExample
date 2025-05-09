@@ -11,7 +11,7 @@
 		<thingCategories><!-- 物品的分类 -->
 			<li>Artifacts</li>
 		</thingCategories>
-		<tradeTags><!-- 物品的交易标签 -->
+		<tradeTags><!-- 物品的交易标签，会影响物品在商队和派系基地的生成 -->
 			<li>Artifacts</li>
 		</tradeTags>
 	</ThingDef>
@@ -41,6 +41,9 @@
 					<li>
 						<thingDef>SimpleLootBoxExampleA</thingDef><!-- 箱子的定义名，加入到全局击杀生物后的掉落列表；如果有自定义的钥匙，也可以考虑加到这里来 -->
 						<chance>0.5</chance><!-- 这个箱子的掉落概率，不填默认为0.05，也就是5%的击杀掉率 -->
+						<lootBoxSpawnGroup>SimpleLootBoxGroupX</lootBoxSpawnGroup><!-- 如果要按某个时间间隔生成战利品箱，请将其分配到一个 lootBoxSpawnGroup。同一组中的所有战利品箱会共享一次生成机会，具体由它们各自的 weightInGroup 权重决定 -->
+						<weightInGroup>5</weightInGroup><!-- 该战利品箱在所属组中的生成权重，默认值为 1 -->
+						<daysBetweenLootBoxSpawns>0.2</daysBetweenLootBoxSpawns><!-- 战利品箱的生成频率。daysBetweenLootBoxSpawns = 7 表示该战利品箱每隔 7 个游戏日生成一次。同一 lootBoxSpawnGroup 中的所有战利品箱应具有相同的 daysBetweenLootBoxSpawns 值。此项无默认值-->
 					</li>
 				</lootBoxList>
 			</li>
@@ -62,7 +65,7 @@
 						<isHidden>false</isHidden><!-- 该物品是否会在可用的奖励列表里隐藏，如果你想给开箱的人一个惊喜，可以把他设置成true，默认为false -->
 					</li>
 					<li>
-						<thingDef>Gold</thingDef>
+						<thingDef>RawCorn</thingDef>
 						<count>500</count>
 						<weight>1</weight>
 						<rarity>4</rarity>
@@ -126,7 +129,7 @@
 				<lootBoxBackgroundTexturePath>SimpleLootBox/LootBoxBackgroundB</lootBoxBackgroundTexturePath>
 				<lootBoxPawnKindDef>
 					<li>
-						<pawnKindDef>Mercenary_Gunner</pawnKindDef><!-- 箱子可以开出的人物的定义名 -->
+						<pawnKindDef>Mercenary_Gunner</pawnKindDef><!-- 箱子可以开出的人物的定义名，人物可以是动物，人物，机械，或者任何类型 -->
 						<count>2</count><!-- 该人物生成的数量 -->
 						<weight>5</weight><!-- 这项奖励的生成权重 -->
 						<isHostile>false</isHostile><!-- 生成的人物是否和玩家敌对，默认为false -->

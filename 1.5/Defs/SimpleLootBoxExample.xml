@@ -11,15 +11,15 @@
 		<thingCategories><!-- Item category -->
 			<li>Artifacts</li>
 		</thingCategories>
-		<tradeTags><!-- Item trade tags -->
+		<tradeTags><!-- Item trade tags. Affect the spawns of the item in trade caravans and faction bases -->
 			<li>Artifacts</li>
 		</tradeTags>
 	</ThingDef>
 
 	<ThingDef ParentName="SimpleLootBoxBase">
 		<defName>SimpleLootBoxExampleA</defName><!-- Definition name of the loot box -->
-		<label>simple loot box example A</label><!-- The name of the loot box, which can be localized for translation -->
-		<description>Example A.</description><!-- The description of the loot box, which can be localized for translation -->
+		<label>northern european–style loot box</label><!-- The name of the loot box, which can be used for translation -->
+		<description>Northern european–style loot box.</description><!-- The description of the loot box, which can be used for translation -->
 		<graphicData>
 			<texPath>SimpleLootBox/ExampleA</texPath><!-- The texture path of the loot box -->
 			<graphicClass>Graphic_Single</graphicClass>
@@ -28,7 +28,7 @@
 			<Mass>1.0</Mass><!-- The mass of the loot box -->
 			<MarketValue>100</MarketValue><!-- The market value of the loot box itself -->
 		</statBases>
-		<tradeability>Buyable</tradeability><!-- Whether the loot box can be traded. Some literal values are available for this setting： None Sellable Buyable All -->
+		<tradeability>Buyable</tradeability><!-- Whether the loot box can be traded. Some values are available for this setting： None Sellable Buyable All -->
 		<comps>
 			<li Class="CompProperties_Usable">
 				<useJob>UseArtifact</useJob>
@@ -41,7 +41,9 @@
 					<li>
 						<thingDef>SimpleLootBoxExampleA</thingDef><!-- The loot box's defName, added to the global drop list for killing creatures; if you have a custom key item, consider adding it here as well -->
 						<chance>0.5</chance><!-- The drop chance of this loot box; defaults to 0.05 (5%) if not specified -->
-						<daysBetweenLootBoxSpawns>0.2</daysBetweenLootBoxSpawns><!-- The frequency of spawning the loot box. daysBetweenLootBoxSpawns = 7, meaning spawn of a such a lootbox every 7 days in the game. No default loot box spawn -->
+						<lootBoxSpawnGroup>SimpleLootBoxGroupX</lootBoxSpawnGroup><!-- To spawn a loot box every daysBetweenLootBoxSpawns, assign it to a lootBoxSpawnGroup. All loot boxes in the same group share the chance to spawn, based on their assigned weightInGroup -->
+						<weightInGroup>5</weightInGroup><!-- The generation weight of this loot box in its group; default is 1 -->
+						<daysBetweenLootBoxSpawns>0.2</daysBetweenLootBoxSpawns><!-- The frequency of spawning the loot box. daysBetweenLootBoxSpawns = 7, meaning spawn of a such a lootbox every 7 days in the game. All loot boxes in the same lootBoxSpawnGroup should have the same daysBetweenLootBoxSpawns. No default-->
 					</li>
 				</lootBoxList>
 			</li>
@@ -51,28 +53,28 @@
 				<lootBoxBackgroundMusicSound>lootBoxBackgroundMusicSoundA</lootBoxBackgroundMusicSound><!-- Background music for the loot box opening window; it's a single-loop Sustainer -->
 				<lootBoxBackgroundTexturePath>SimpleLootBox/LootBoxBackgroundA</lootBoxBackgroundTexturePath><!-- Background image for the loot box window; the UI resolution is:700*800 -->
 				<lootBoxOpenCost>Silver</lootBoxOpenCost><!-- The item required to open the loot box. It can be silver, a custom key, or any other item. If not specified, no item is required by default -->
-				<lootBoxOpenCostCount>100</lootBoxOpenCostCount><!-- The number of items required to open the loot box. Defaults to 0 if not specified -->
+				<lootBoxOpenCostCount>100</lootBoxOpenCostCount><!-- The number of items required to open the loot box. Default is 0 -->
 				<lootBoxThingDef>
 					<li>
 						<thingDef>Silver</thingDef><!-- The defName of items that can be obtained from the loot box; this field is required -->
 						<count>1000</count><!-- The quantity of the item to be generated; this field is required -->
 						<weight>5</weight><!-- The generation weight of this reward; this field is required -->
-						<rarity>2</rarity><!-- The rarity of this reward (used for color and text display). Available values: 0 1 2 3 4 5, where higher numbers indicate greater rarity. Defaults to 0 if not specified.-->
-						<effecterDef>Skip_ExitNoDelay</effecterDef><!-- An optional effect to play when this reward is generated. If not set, no effect will be shown -->
+						<rarity>2</rarity><!-- The rarity of this reward (used for color and text display). Available values: 0 1 2 3 4 5, where higher numbers indicate greater rarity. Default is 0-->
+						<effecterDef>Skip_ExitNoDelay</effecterDef><!-- An optional effect to play when this reward is generated. If not set, no effect -->
 						<lootBoxFinalizingRewardSound>lootBoxFinalizingRewardSound</lootBoxFinalizingRewardSound><!-- The sound effect played when this reward is selected. If not set, no sound will be played. -->
-						<isHidden>false</isHidden><!-- Whether this item should be hidden from the visible reward list. If you want to surprise the player, set this to true. Defaults to false -->
+						<isHidden>false</isHidden><!-- Whether this item should be hidden from the visible reward list. If you want to surprise the player, set this to true. Default is false -->
 					</li>
 					<li>
-						<thingDef>Gold</thingDef>
+						<thingDef>RawCorn</thingDef>
 						<count>500</count>
-						<weight>1</weight>
+						<weight>3</weight>
 						<rarity>4</rarity>
 						<lootBoxFinalizingRewardSound>lootBoxFinalizingRewardSound</lootBoxFinalizingRewardSound>
 					</li>
 					<li>
 						<thingDef>Bed</thingDef>
 						<stuff>WoodLog</stuff><!-- If this item is stuffable, it will use the stuff specified here. If not specified, the default stuff will be used automatically. -->
-						<quality>Masterwork</quality><!-- If the item supports quality, it will use the specified quality here. If not set, the default is Normal. Available quality: Awful Poor Normal Good Excellent Masterwork Legendary-->
+						<quality>Masterwork</quality><!-- If the item has quality, it will use the specified quality here. If not set, the default is Normal. Available quality: Awful Poor Normal Good Excellent Masterwork Legendary-->
 						<count>1</count>
 						<weight>2</weight>
 						<rarity>2</rarity>
@@ -93,9 +95,8 @@
 
 	<ThingDef ParentName="SimpleLootBoxBase">
 		<defName>SimpleLootBoxExampleB</defName>
-		<label>simple loot box example B</label>
-		<thingClass>ThingWithComps</thingClass>
-		<description>Example B.</description>
+		<label>hachimii–style loot box</label>
+		<description>Hachimii–style loot box.</description>
 		<graphicData>
 			<texPath>SimpleLootBox/ExampleB</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -117,6 +118,9 @@
 					<li>
 						<thingDef>SimpleLootBoxExampleB</thingDef>
 						<chance>0.5</chance>
+						<lootBoxSpawnGroup>SimpleLootBoxGroupX</lootBoxSpawnGroup>
+						<weightInGroup>1</weightInGroup>
+						<daysBetweenLootBoxSpawns>0.2</daysBetweenLootBoxSpawns>
 					</li>
 				</lootBoxList>
 			</li>
@@ -127,10 +131,10 @@
 				<lootBoxBackgroundTexturePath>SimpleLootBox/LootBoxBackgroundB</lootBoxBackgroundTexturePath>
 				<lootBoxPawnKindDef>
 					<li>
-						<pawnKindDef>Mercenary_Gunner</pawnKindDef><!-- The defName of a pawn (character) that can be obtained from the loot box -->
+						<pawnKindDef>Mercenary_Gunner</pawnKindDef><!-- The defName of a pawn that can be obtained from the loot box. The pawn can be animal, humanoid, mechanoid, or anything -->
 						<count>2</count><!-- The number of pawns to be generated -->
 						<weight>5</weight><!-- The generation weight of this reward -->
-						<isHostile>false</isHostile><!-- Whether the generated pawn is hostile to the player. Defaults to false -->
+						<isHostile>false</isHostile><!-- Whether the generated pawn is hostile to the player. Default is false -->
 						<lootBoxFinalizingRewardSound>lootBoxFinalizingRewardSound</lootBoxFinalizingRewardSound>
 					</li>
 					<li>
@@ -160,9 +164,8 @@
 
 	<ThingDef ParentName="SimpleLootBoxBase">
 		<defName>SimpleLootBoxExampleC</defName>
-		<label>simple loot box example C</label>
-		<thingClass>ThingWithComps</thingClass>
-		<description>Example C.</description>
+		<label>very special loot box</label>
+		<description>A very special loot box.</description>
 		<graphicData>
 			<texPath>SimpleLootBox/ExampleC</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -184,6 +187,9 @@
 					<li>
 						<thingDef>SimpleLootBoxExampleC</thingDef>
 						<chance>0.5</chance>
+						<lootBoxSpawnGroup>SimpleLootBoxGroupY</lootBoxSpawnGroup>
+						<weightInGroup>1</weightInGroup>
+						<daysBetweenLootBoxSpawns>0.5</daysBetweenLootBoxSpawns>
 					</li>
 				</lootBoxList>
 			</li>
