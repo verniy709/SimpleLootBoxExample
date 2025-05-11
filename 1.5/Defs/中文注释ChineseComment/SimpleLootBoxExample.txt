@@ -31,10 +31,10 @@
 		<tradeability>Buyable</tradeability><!-- 箱子是否可以交易，有几个字面意思可以理解的值 None Sellable Buyable All -->
 		<comps>
 			<li Class="CompProperties_Usable">
-				<useJob>UseArtifact</useJob>
-				<useLabel>Activate {0_label}</useLabel>
-				<showUseGizmo>true</showUseGizmo>
-				<useDuration>150</useDuration>
+				<useJob>UseArtifact</useJob><!-- 开箱的工作的defName，不建议更改 -->
+				<useLabel>Activate {0_label}</useLabel><!-- 开箱工作的名称，可以进行本地化翻译 -->
+				<showUseGizmo>true</showUseGizmo><!-- 允许你选择物品后再选择一个殖民者来打开它 -->
+				<useDuration>150</useDuration><!-- 开箱所需的时间 -->
 			</li>
 			<li Class="SimpleLootBox.CompProperties_SpawnLootBox">
 				<lootBoxList>

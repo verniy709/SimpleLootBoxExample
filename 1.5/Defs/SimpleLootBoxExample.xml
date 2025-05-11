@@ -19,7 +19,7 @@
 	<ThingDef ParentName="SimpleLootBoxBase">
 		<defName>SimpleLootBoxExampleA</defName><!-- Definition name of the loot box -->
 		<label>northern european–style loot box</label><!-- The name of the loot box, which can be used for translation -->
-		<description>Northern european–style loot box.</description><!-- The description of the loot box, which can be used for translation -->
+		<description>A jar traditionally used for pickling cabbage. It is also a favored hiding spot for valuables in times of trouble.</description><!-- The description of the loot box, which can be used for translation -->
 		<graphicData>
 			<texPath>SimpleLootBox/ExampleA</texPath><!-- The texture path of the loot box -->
 			<graphicClass>Graphic_Single</graphicClass>
@@ -31,10 +31,10 @@
 		<tradeability>Buyable</tradeability><!-- Whether the loot box can be traded. Some values are available for this setting： None Sellable Buyable All -->
 		<comps>
 			<li Class="CompProperties_Usable">
-				<useJob>UseArtifact</useJob>
-				<useLabel>Activate {0_label}</useLabel>
-				<showUseGizmo>true</showUseGizmo>
-				<useDuration>150</useDuration>
+				<useJob>UseArtifact</useJob><!-- The defName of the job to activate a loot box. You do not want to change this -->
+				<useLabel>Activate {0_label}</useLabel><!-- The name of the job to open the loot box, which can be used for translation -->
+				<showUseGizmo>true</showUseGizmo><!-- Allows you to select the item and then select a pawn to open it -->
+				<useDuration>150</useDuration><!-- How long it takes to open the loot box -->
 			</li>
 			<li Class="SimpleLootBox.CompProperties_SpawnLootBox">
 				<lootBoxList>
@@ -96,7 +96,7 @@
 	<ThingDef ParentName="SimpleLootBoxBase">
 		<defName>SimpleLootBoxExampleB</defName>
 		<label>hachimii–style loot box</label>
-		<description>Hachimii–style loot box.</description>
+		<description>Drink this and get your energy back! Unfortunately, the bottle is empty, but if you are lucky, the cap might still hold a surprise.</description>
 		<graphicData>
 			<texPath>SimpleLootBox/ExampleB</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
