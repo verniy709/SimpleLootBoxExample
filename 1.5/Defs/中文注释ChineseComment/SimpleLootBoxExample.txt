@@ -73,8 +73,8 @@
 					</li>
 					<li>
 						<thingDef>Bed</thingDef>
-						<stuff>WoodLog</stuff><!-- 如果这个物品是stuffable，会使用这里设置的stuff，但如果没设置，会自动套用默认stuff -->
-						<quality>Masterwork</quality><!-- 如果这个物品有品质，会使用这里设置的品质，不设置默认Normal，可用的品质为 Awful Poor Normal Good Excellent Masterwork Legendary-->
+						<stuff>WoodLog</stuff><!-- 如果这个物品是stuffable，会使用这里设置的stuff，但如果没设置，会自动套用随机stuff -->
+						<quality>Masterwork</quality><!-- 如果这个物品有品质，会使用这里设置的品质，不设置会自动套用随机stuff，可用的品质为 Awful Poor Normal Good Excellent Masterwork Legendary-->
 						<count>1</count>
 						<weight>2</weight>
 						<rarity>2</rarity>

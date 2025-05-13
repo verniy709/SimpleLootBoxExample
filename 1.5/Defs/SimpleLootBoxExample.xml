@@ -73,8 +73,8 @@
 					</li>
 					<li>
 						<thingDef>Bed</thingDef>
-						<stuff>WoodLog</stuff><!-- If this item is stuffable, it will use the stuff specified here. If not specified, the default stuff will be used automatically. -->
-						<quality>Masterwork</quality><!-- If the item has quality, it will use the specified quality here. If not set, the default is Normal. Available quality: Awful Poor Normal Good Excellent Masterwork Legendary-->
+						<stuff>WoodLog</stuff><!-- If this item is stuffable, it will use the stuff specified here. If not specified, the stuff will be picked randomly . -->
+						<quality>Masterwork</quality><!-- If the item has quality, it will use the specified quality here. If not set, it will pick a random quality. Available quality: Awful Poor Normal Good Excellent Masterwork Legendary-->
 						<count>1</count>
 						<weight>2</weight>
 						<rarity>2</rarity>
