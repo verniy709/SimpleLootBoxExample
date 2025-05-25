@@ -54,8 +54,8 @@
 				<lootBoxBackgroundTexturePath>SimpleLootBox/LootBoxBackgroundA</lootBoxBackgroundTexturePath><!-- Background image for the loot box window; the UI resolution is:700*800 -->
 				<lootBoxOpenCost>Silver</lootBoxOpenCost><!-- The item required to open the loot box. It can be silver, a custom key, or any other item. If not specified, no item is required by default -->
 				<lootBoxOpenCostCount>100</lootBoxOpenCostCount><!-- The number of items required to open the loot box. Default is 0 -->
-				<titleTextColor>(0.1, 0.1, 0.1)</titleTextColor><!-- The RGB color of the title texts. Default color is white (0.0,0) -->
-				<rewardTextColor>(0.1, 0.1, 0.1)</rewardTextColor><!-- The RGB color of the reward list texts. Default color is white (0.0,0) -->
+				<titleTextColor>(0.1, 0.1, 0.1)</titleTextColor><!-- The RGB color of the title texts. Default color is white (1,1,1) -->
+				<rewardTextColor>(0.1, 0.1, 0.1)</rewardTextColor><!-- The RGB color of the reward list texts. Default color is white (1,1,1) -->
 				<lootBoxThingDef>
 					<li>
 						<thingDef>Silver</thingDef><!-- The defName of items that can be obtained from the loot box; this field is required -->

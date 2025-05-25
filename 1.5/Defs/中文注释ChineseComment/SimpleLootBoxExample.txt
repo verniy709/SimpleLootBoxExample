@@ -54,8 +54,8 @@
 				<lootBoxBackgroundTexturePath>SimpleLootBox/LootBoxBackgroundA</lootBoxBackgroundTexturePath><!-- 开箱界面的背景图，界面的分辨率为700*800 -->
 				<lootBoxOpenCost>Silver</lootBoxOpenCost><!-- 开箱子所需要的物品，可以是白银，自定义的钥匙，或者任何物品，不填就默认为无 -->
 				<lootBoxOpenCostCount>100</lootBoxOpenCostCount><!-- 开箱子所需要的物品的数量，不填默认为0 -->
-				<titleTextColor>(0.1, 0.1, 0.1)</titleTextColor><!-- 箱子标题的RGB颜色，默认为白色 (0.0,0) -->
-				<rewardTextColor>(0.1, 0.1, 0.1)</rewardTextColor><!-- 箱子奖励列表的RGB颜色，默认为白色 (0.0,0) -->
+				<titleTextColor>(0.1, 0.1, 0.1)</titleTextColor><!-- 箱子标题的RGB颜色，默认为白色 (1,1,1) -->
+				<rewardTextColor>(0.1, 0.1, 0.1)</rewardTextColor><!-- 箱子奖励列表的RGB颜色，默认为白色 (1,1,1) -->
 				<lootBoxThingDef>
 					<li>
 						<thingDef>Silver</thingDef><!-- 箱子可以开出的物品的定义名，必填 -->
